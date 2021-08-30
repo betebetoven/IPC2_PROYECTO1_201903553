@@ -50,7 +50,7 @@ def verif(nombre):
                 ahora = ahora.Next
                 ahorax = ahorax.Next
                 ahoray = ahoray.Next
-                while ahora != None and -1 == str(ahora).find("terreno") :
+                while ahora != None and -1 == str(ahora).find("a") and -1 == str(ahora).find("e") and -1 == str(ahora).find("i") and -1 == str(ahora).find("o") and -1 == str(ahora).find("u"):
                   minuevalista.agrega(ahora)
                   mpxaux.agrega(ahorax)
                   mpyaux.agrega(ahoray)
