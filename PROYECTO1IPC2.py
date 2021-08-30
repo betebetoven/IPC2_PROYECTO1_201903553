@@ -16,9 +16,10 @@ pruebavalor = LinkedList()
 pruebax = LinkedList()
 pruebay = LinkedList()
 def carga():
+ print("OBTENIENDO INFORMACION DEL XML...")
  for n in j:
      miista.agrega(n.attrib['nombre'])
-     milistaposicionx.agrega(n.attrib['nombre'])
+     milistaposicionx.agrega(n.attrib['nombre'])        
      milistaposiciony.agrega(n.attrib['nombre'])
      f = n.findall('posicion')
      for x in f:
@@ -29,6 +30,7 @@ def carga():
 
 
 def verif(nombre):
+        print("PROCESANDO TERRENO ESPECIFICO...")
         ahora = miista.First
         ahorax = milistaposicionx.First
         ahoray = milistaposiciony.First
@@ -126,6 +128,7 @@ def apuntarNodosVerticales(matriz):#Aca se apuntan los nodos de cada columna
             contador2 += 1
         contador1 += 1
 def graficaremergencia(matriz,matrizp):
+    print("PROCESANDO GRAFICA POR MEDIO DE GRAPHVIZ...")
     for i in matriz:
         declararNodos(i)
 
@@ -137,19 +140,46 @@ def graficaremergencia(matriz,matrizp):
     d.view()
 
 
-carga()
+
 while True:
+    print("Menú principal:")
+    print("1.cargar archivo")
+    print("2.procesar archivo")
+    print("3.escribir archivo de salida")
+    print("4.Mostrar datos del estudiante")
+    print("5.Generar gráfica")
+    print("6.salir")
+    t = input()
+    if t =="1":
+        carga()
+    elif t == "2":
+        verif(input())
+        tamaño()
+    elif t == "3":
+        print()
+
+    elif t == "4":
+        print("ALBERTO JOSÚE HERNÁNDEZ ARMAS" +"\n201903553 ")
     
-    verif(input())
-    tamaño()
-    matriz = matrs()
-    matrizp = matrsp()
-    #print(matriz)
-    graficaremergencia(matriz,matrizp)
-    cont = 0
-    d.clear()
-    for n in matriz:
-        print(n)
+    elif t == "5":
+        print("")
+        matriz = matrs()
+        matrizp = matrsp()
+    
+        graficaremergencia(matriz,matrizp)
+        cont = 0
+        d.clear()
+        for n in matriz:
+            print(n)
+    
+    elif t == "6":
+        break
+        
+
+
+    
+    
+    
     
 #print(matriz.index(4))
 
