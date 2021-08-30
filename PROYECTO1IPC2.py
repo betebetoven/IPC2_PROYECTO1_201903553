@@ -1,10 +1,13 @@
 
 import os
 import graphviz
+from tkinter import *
+from tkinter.filedialog import askopenfilename
 from xml.etree import ElementTree
 from LinkedList import LinkedList
-dom = ElementTree.parse("C:/Users/Alberto/Desktop/borar/Entrada.xml")
-j = dom.findall('terreno')
+Tk().withdraw()
+
+
 d = graphviz.Digraph(filename='matriz')
 miista = LinkedList()
 #minuevalista = LinkedList()
@@ -15,7 +18,9 @@ milistaposiciony = LinkedList()
 pruebavalor = LinkedList()
 pruebax = LinkedList()
 pruebay = LinkedList()
-def carga():
+def carga(ruta):
+ dom = ElementTree.parse(ruta)
+ j = dom.findall('terreno')
  print("OBTENIENDO INFORMACION DEL XML...")
  for n in j:
      miista.agrega(n.attrib['nombre'])
@@ -151,7 +156,7 @@ while True:
     print("6.salir")
     t = input()
     if t =="1":
-        carga()
+        carga(askopenfilename())
     elif t == "2":
         verif(input())
         tamaño()
